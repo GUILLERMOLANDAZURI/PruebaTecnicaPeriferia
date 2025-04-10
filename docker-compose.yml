@@ -1,0 +1,44 @@
+version: "3"
+services:
+  prueba:
+    container_name: prueba
+    image: prueba
+    ports:
+      - "8981:80"
+    restart: always
+    networks:
+      - Landazuri
+    environment:
+      - TZ=America/Bogota
+
+  api_prueba:
+    container_name: api_prueba
+    image: api_prueba
+    ports:
+      - "9235:2000"
+    restart: always
+    networks:
+      - Landazuri
+    environment:
+      - TZ=America/Bogota
+
+  postgres:
+    image: postgres:12
+    container_name: my-postgres
+    ports:
+      - "5232:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: PRUEBA
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - Landazuri
+
+networks:
+  Landazuri:
+    external: true
+# docker network create Landazuri
+# docker-compose -p prueba -f docker-compose.yml up -d
