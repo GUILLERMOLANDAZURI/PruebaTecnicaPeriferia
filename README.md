@@ -57,6 +57,6 @@ Desarrollar una red social utilizando arquitectura de microservicios, donde los 
 
 ```bash
 # Clona el repositorio
-git clone https://github.com/tu_usuario/tu_repositorio.git
+https://github.com/GUILLERMOLANDAZURI/PruebaTecnicaPeriferia.git
 
 # Sigue las instrucciones específicas de instalación en cada carpeta (backend y frontend)
